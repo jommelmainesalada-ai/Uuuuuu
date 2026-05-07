@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Food Registration</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#4facfe,#ff6ec7);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:380px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.logo{
+    text-align:center;
+    font-size:60px;
+    color:red;
+    margin-bottom:10px;
+}
+
+h2{
+    text-align:center;
+    color:#ff4fa3;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    text-align:center;
+    color:gray;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-box i{
+    position:absolute;
+    top:14px;
+    left:12px;
+    color:#4facfe;
+}
+
+.input-box input,
+.input-box select{
+    width:100%;
+    padding:12px 12px 12px 40px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#4facfe,#ff6ec7);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    color:gray;
+    font-size:13px;
+}
+
+.page2{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="page1">
+
+<div class="logo">
+<i class="fa-solid fa-x"></i>
+</div>
+
+<h2>
+<i class="fa-solid fa-burger"></i>
+Fast Food Registration
+</h2>
+
+<div class="subtitle">
+Welcome To Fast Food Restaurant 🍗
+</div>
+
+<form id="registerForm">
+
+<div class="input-box">
+<i class="fa-solid fa-user"></i>
+<input type="text" placeholder="Full Name" required>
+</div>
+
+<div class="input-box">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" placeholder="Email Address" required>
+</div>
+
+<div class="input-box">
+<i class="fa-solid fa-phone"></i>
+<input type="tel" placeholder="Phone Number" required>
+</div>
+
+<div class="input-box">
+<i class="fa-solid fa-utensils"></i>
+
+<select required>
+<option value="">Select Course</option>
+<option>Fast Foods</option>
+<option>Food Restaurant</option>
+<option>None of the SSID</option>
+<option>None of the registration</option>
+</select>
+
+</div>
+
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
+<input type="password" placeholder="Create Password" required>
+</div>
+
+<button type="submit" class="btn">
+<i class="fa-solid fa-paper-plane"></i>
+Register Now
+</button>
+
+</form>
+
+<div class="footer">
+Fast Food Form Page
+</div>
+
+</div>
+
+<div class="container page2" id="page2">
+
+<div class="logo">
+<i class="fa-solid fa-x"></i>
+</div>
+
+<h2>Many Attempts</h2>
+
+<div class="subtitle">
+You many attempts to try.<br>
+Please wait for 3 days.
+</div>
+
+<button class="btn" onclick="tryAgain()">
+Try Again
+</button>
+
+</div>
+
+<script>
+
+const form = document.getElementById("registerForm");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let retry = confirm(
+"You canceled the registration form.\nDo you like to try again?"
+);
+
+if(retry){
+
+let code = prompt(
+"Enter the code pls\n\nType HELP for code."
+);
+
+while(code !== "10802"){
+
+if(code === null){
+return;
+}
+
+if(code.toUpperCase() === "HELP"){
+
+alert("The code is 10802");
+
+code = prompt("Enter the code pls");
+
+}else{
+
+code = prompt("Wrong code.\nEnter the code pls");
+
+}
+
+}
+
+alert("Code Accepted!");
+
+document.getElementById("page1").style.display="none";
+document.getElementById("page2").style.display="block";
+
+}
+
+});
+
+function tryAgain(){
+
+alert("Successfully Try Again");
+
+let dns = confirm(
+"This page is maybe out of DNS!\n\nRestart DNS?"
+);
+
+if(dns){
+
+alert("Restarting DNS...");
+
+document.getElementById("page2").style.display="none";
+document.getElementById("page1").style.display="block";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
